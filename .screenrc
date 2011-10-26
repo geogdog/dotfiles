@@ -1,0 +1,3 @@
+caption always "%{WM}%w%=%t %C %{-}"
+shell /bin/bash
+startup_message off
