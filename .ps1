@@ -20,6 +20,9 @@ rgb_white='\[\033[01;37m\]'
 
 rgb_std="${rgb_white}"
 
+#
+# Setup root prompt
+#
 if [ `id -u` -eq 0 ]
 then
     rgb_usr="${rgb_red}"
@@ -28,30 +31,41 @@ else
 fi
 
 #
+# Setup 'last command exit status' Smiley
+#
+RED='\033[01;31m'
+GREEN='\033[01;32m'
+REGULAR=$RED
+SUPER='\033[00;31m'
+PROMPT_COMMAND='RET=$?;'
+ret_value='$(echo $RET)'
+ret_smiley='$(if [[ $RET = 0 ]]; then echo -en "\[${GREEN}\]:)"; else echo -en "\[${RED}\]:("; fi;)'
+
+#
 # Setup the prompt for remote givaway
 #
 # Local
 if [ "${DISPLAY}" -a "${TERM}" -a ! "${SSH_CLIENT}" ]; then
-  export PS1="${rgb_cadet}[${rgb_restore}${rgb_usr}\u${rgb_restore}@\h${rgb_cadet}]${rgb_restore} ${rgb_blue}\W${rgb_restore} \\$ "
+  export PS1="${ret_smiley} ${rgb_cadet}[${rgb_restore}${rgb_usr}\u${rgb_restore}@\h${rgb_cadet}]${rgb_restore} ${rgb_blue}\W${rgb_restore} \\$ "
 else
-  export PS1="${rgb_cadet}[${rgb_restore}${rgb_usr}\u${rgb_restore}@\h${rgb_cadet}]${rgb_restore} ${rgb_red}\W${rgb_restore} \\$ "
+  export PS1="${ret_smiley} ${rgb_cadet}[${rgb_restore}${rgb_usr}\u${rgb_restore}@\h${rgb_cadet}]${rgb_restore} ${rgb_red}\W${rgb_restore} \\$ "
 fi
 
-unset   rgb_restore   \
-        rgb_black     \
-        rgb_firebrick \
-        rgb_red       \
-        rgb_forest    \
-        rgb_green     \
-        rgb_brown     \
-        rgb_yellow    \
-        rgb_navy      \
-        rgb_blue      \
-        rgb_purple    \
-        rgb_magenta   \
-        rgb_cadet     \
-        rgb_cyan      \
-        rgb_gray      \
-        rgb_white     \
-        rgb_std       \
-        rgb_usr
+unset rgb_restore   \
+      rgb_black     \
+      rgb_firebrick \
+      rgb_red       \
+      rgb_forest    \
+      rgb_green     \
+      rgb_brown     \
+      rgb_yellow    \
+      rgb_navy      \
+      rgb_blue      \
+      rgb_purple    \
+      rgb_magenta   \
+      rgb_cadet     \
+      rgb_cyan      \
+      rgb_gray      \
+      rgb_white     \
+      rgb_std       \
+      rgb_usr
