@@ -25,3 +25,10 @@ if [ -x /usr/bin/virtualenvwrapper.sh ]; then
 
     alias mkvirtualenv='mkvirtualenv --no-site-packages'
 fi
+
+#
+# My App Dir
+#
+if [ -d ~/Apps/bin ]; then
+    export PATH=${PATH}:~/Apps/bin
+fi
