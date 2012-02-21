@@ -22,7 +22,7 @@ fi
 shopt -s histappend
 HISTSIZE=1000000
 HISTCONTROL=ignoreboth
-HISTIGNORE='ls:bg:fg:history'
+HISTIGNORE='ls:ls -l:bg:fg:history'
 HISTTIMEFORMAT='%F %T  '
 shopt -s cmdhist
 
