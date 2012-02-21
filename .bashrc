@@ -17,6 +17,16 @@ if [ -f ~/.ps1 ]; then
 fi
 
 #
+# History option from http://blog.sanctum.geek.nz/better-bash-history/
+#
+shopt -s histappend
+HISTSIZE=1000000
+HISTCONTROL=ignoreboth
+HISTIGNORE='ls:bg:fg:history'
+HISTTIMEFORMAT='%F %T  '
+shopt -s cmdhist
+
+#
 # Setup virtualenvwrapper
 #
 if [ -x /usr/bin/virtualenvwrapper.sh ]; then
