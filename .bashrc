@@ -29,11 +29,16 @@ shopt -s cmdhist
 #
 # Setup virtualenvwrapper
 #
-if [ -x /usr/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    . /usr/bin/virtualenvwrapper.sh
+#    sudo yum install python-setuptools
+#    easy_install --user virtualenvwrapper
+#
+if [ -d ~/.local/bin ]; then
+    export PATH=${PATH}:~/.local/bin
+fi
 
-    alias mkvirtualenv='mkvirtualenv --no-site-packages'
+if [ -x ~/.local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    . ~/.local/bin/virtualenvwrapper.sh
 fi
 
 #
