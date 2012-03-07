@@ -38,6 +38,7 @@ fi
 
 if [ -x ~/.local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/projects
     . ~/.local/bin/virtualenvwrapper.sh
 fi
 
