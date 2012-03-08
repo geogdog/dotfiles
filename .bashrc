@@ -36,10 +36,10 @@ if [ -d ~/.local/bin ]; then
     export PATH=${PATH}:~/.local/bin
 fi
 
-if [ -x ~/.local/bin/virtualenvwrapper.sh ]; then
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
     export PROJECT_HOME=$HOME/projects
-    . ~/.local/bin/virtualenvwrapper.sh
+    . /usr/bin/virtualenvwrapper.sh
 fi
 
 #
