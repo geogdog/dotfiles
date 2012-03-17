@@ -31,3 +31,16 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 let @h = 'yypVr'
+
+" miniBufExpl plugin
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+" tastlist
+map T :TaskList<CR>
+map P :TlistToggle<CR>
+
+" omnicomplete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
