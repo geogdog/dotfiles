@@ -37,7 +37,8 @@ RED='\033[01;31m'
 GREEN='\033[01;32m'
 REGULAR=$RED
 SUPER='\033[00;31m'
-PROMPT_COMMAND='RET=$?;history -a; history -n'
+#PROMPT_COMMAND='RET=$?;history -a; history -n'
+PROMPT_COMMAND='RET=$?'
 ret_value='$(echo $RET)'
 ret_smiley='$(if [[ $RET = 0 ]]; then echo -en "\[${GREEN}\]:)"; else echo -en "\[${RED}\]:("; fi;)'
 
