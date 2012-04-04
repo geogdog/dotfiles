@@ -32,22 +32,11 @@ shopt -s cmdhist
 #    sudo yum install python-setuptools
 #    easy_install --user virtualenvwrapper
 #
-<<<<<<< Updated upstream
-if [ -d ~/.local/bin ]; then
-    export PATH=${PATH}:~/.local/bin
-fi
-
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    export PROJECT_HOME=$HOME/projects
-    . /usr/bin/virtualenvwrapper.sh
-=======
 if [ -x ~/.local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
     export PROJECT_HOME=$HOME/projects
     test -d $PROJECT_HOME || mkdir -p $PROJECT_HOME
     . ~/.local/bin/virtualenvwrapper.sh
->>>>>>> Stashed changes
 fi
 
 #
